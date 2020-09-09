@@ -98,21 +98,11 @@ function DisplayName(Array)
 
 function GetMax(Array){
     var max =0;
-/*
-    for(var x=1; x<ObjSalon.pets.length; x++){
-            temp = ObjSalon.pets[x].Age;
-            //j = i - 1;
-            var j=x-1;
-            while ((ObjSalon.pets[j]!=undefined) && (ObjSalon.pets[j].Age > temp) && (j >= 0)) {
-                max = ObjSalon.pets[j].Age;
-                j--;
-            }    
-    }*/
     max = Math.max.apply(Math, Array.pets.map(function(objArray) { 
         return objArray.Age; 
     }));
 
-    console.log("Valor Maximo: "+max);
+    console.log("Oldest pet: "+max);
 }
 
 function GetMin(Array){
@@ -121,7 +111,7 @@ function GetMin(Array){
         return objArray.Age; 
     }));
 
-    console.log("Valor Minimo: "+min);
+    console.log("Youngest pet: "+min);
 }
 
 
@@ -131,7 +121,7 @@ DisplayName(ObjSalon);
 console.log("------Display Number of Pets--------");
 DisplayNumberPets(ObjSalon);
 
-console.log("------Display Max Min-------");
+console.log("------Display Oldest and Youngest Pet-------");
 GetMin(ObjSalon);
 GetMax(ObjSalon);
 
