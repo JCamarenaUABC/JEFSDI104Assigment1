@@ -97,8 +97,7 @@ function DisplayName(Array)
 }
 
 function GetMax(Array){
-    var max =0;
-    max = Math.max.apply(Math, Array.pets.map(function(objArray) { 
+    var max = Math.max.apply(Math, Array.pets.map(function(objArray) { 
         return objArray.Age; 
     }));
 
@@ -106,8 +105,7 @@ function GetMax(Array){
 }
 
 function GetMin(Array){
-
-    min = Math.min.apply(Math, Array.pets.map(function(objArray) { 
+    var min = Math.min.apply(Math, Array.pets.map(function(objArray) { 
         return objArray.Age; 
     }));
 
