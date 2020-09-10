@@ -96,20 +96,37 @@ function DisplayName(Array)
     }
 }
 
-function GetMax(Array){
-    var max = Math.max.apply(Math, Array.pets.map(function(objArray) { 
-        return objArray.Age; 
-    }));
+function bubbleMetothod(ArrayTMP){
+		for(var i=1;i<ArrayTMP.length;i++)
+		{
+			for(var j=0;j<(ArrayTMP.length-i);j++)
+			{
+				if(ArrayTMP[j].Age>ArrayTMP[j+1].Age)
+				{
+					k=ArrayTMP[j+1].Age;
+					ArrayTMP[j+1].Age=ArrayTMP[j].Age;
+					ArrayTMP[j].Age=k;
+				}
+			}
+        }
+ 
+		return ArrayTMP;
+}
 
-    console.log("Oldest pet: "+max);
+function GetMax(Array){
+    Array = bubbleMetothod(Array);
+    /*var max = Math.max.apply(Math, Array.pets.map(function(objArray) { 
+        return objArray.Age; 
+    }));*/
+    console.log("Oldest pet: "+Array[Array.length-1].Age);
 }
 
 function GetMin(Array){
-    var min = Math.min.apply(Math, Array.pets.map(function(objArray) { 
+    Array = bubbleMetothod(Array);
+    /*var min = Math.min.apply(Math, Array.pets.map(function(objArray) { 
         return objArray.Age; 
-    }));
-
-    console.log("Youngest pet: "+min);
+    }));*/
+    console.log("Youngest pet: "+Array[0].Age);
 }
 
 
@@ -120,8 +137,8 @@ console.log("------Display Number of Pets--------");
 DisplayNumberPets(ObjSalon);
 
 console.log("------Display Oldest and Youngest Pet-------");
-GetMin(ObjSalon);
-GetMax(ObjSalon);
+GetMin(ObjSalon.pets);
+GetMax(ObjSalon.pets);
 
 //function to display on console the number of registered pets
 
